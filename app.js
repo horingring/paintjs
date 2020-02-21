@@ -4,6 +4,7 @@ const colors = document.getElementsByClassName("jsColor");
 const range = document.getElementById("jsRange");
 const mode = document.getElementById("jsMode");
 const saveBtn = document.getElementById("jsSave");
+const clearBtn = document.getElementById("jsClear");
 
 const INITIAL_COLOR = "#2c2c2c";
 const CANVAS_SIZE = 700;
@@ -78,9 +79,16 @@ function handleRightClick(event){
 function handleSaveClick(event){
     const link = document.createElement("a");
     const image = canvas.toDataURL();
+    console.log(image);
+    /*
     link.href = image;
     link.download = "PaintByJS";
     link.click();
+    */
+}
+
+function handleClearClick(event){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
 }
 
 if(canvas){
@@ -106,3 +114,6 @@ if(saveBtn){
     saveBtn.addEventListener("click",handleSaveClick);
 }
 
+if(clearBtn){
+    clearBtn.addEventListener("click",handleClearClick);
+}
