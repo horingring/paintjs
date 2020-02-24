@@ -79,16 +79,17 @@ function handleRightClick(event){
 function handleSaveClick(event){
     const link = document.createElement("a");
     const image = canvas.toDataURL();
-    console.log(image);
-    /*
     link.href = image;
     link.download = "PaintByJS";
     link.click();
-    */
+
 }
 
 function handleClearClick(event){
     ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle = "white";
+    ctx.fillRect(0,0,CANVAS_SIZE,CANVAS_SIZE);
+
 }
 
 if(canvas){
